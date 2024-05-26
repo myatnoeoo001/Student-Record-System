@@ -24,16 +24,16 @@ class Dashboard:
         self.heading_lb.place(x=0, y=0, width=400)
 
         # Login Teacher Button
-        self.admin_login_btn = Button(self.welcome_page_fm, text='Login Teacher', bg=self.bg_color, fg='black', font=('Bold', 15), bd=0,command=self.open_login)
-        self.admin_login_btn.place(x=120, y=125, width=200)
+        self.admin_login_btn = Button(self.welcome_page_fm, text='Login', bg=self.bg_color, fg='black', font=('Bold', 15), bd=0,command=self.open_login)
+        self.admin_login_btn.place(x=100, y=125, width=200)
 
         #Register Button
         self.admin_register_btn = Button(self.welcome_page_fm, text='Register', bg=self.bg_color, fg='black', font=('Bold', 15), bd=0,command=self.open_register)
-        self.admin_register_btn.place(x=120, y=225, width=200)
+        self.admin_register_btn.place(x=100, y=225, width=200)
 
         #Exit Button
         self.exit_btn = Button(self.welcome_page_fm, text='Exit', bg=self.bg_color, fg='black', font=('Bold', 15), bd=0)
-        self.exit_btn.place(x=120, y=325, width=200)
+        self.exit_btn.place(x=100, y=325, width=200)
 
         #Frame Pack to window
         self.welcome_page_fm.pack(pady=30)

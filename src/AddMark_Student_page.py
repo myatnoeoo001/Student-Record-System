@@ -46,10 +46,10 @@ class AddMark:
         DataFrame=Frame(self.MainFrame,bd=1,width=1500,height=900,padx=20,pady=20, bg='cadet blue')
         DataFrame.pack(side='top')
 
-        DataFrameLeft=LabelFrame(DataFrame,bd=1,width=500,height=500,padx=2, bg='cadet blue',font=('Arial',20,'bold'),text='Student Details\n')
+        DataFrameLeft=LabelFrame(DataFrame,bd=1,width=500,height=500,padx=2, bg='cadet blue',font=('Arial',20,'bold'),text='Student Add Mark\n')
         DataFrameLeft.pack(side='left')
 
-        self.DataFrameRight=LabelFrame(DataFrame,bd=1,width=900,height=400,padx=31,pady=8, bg='powder blue',font=('Arial',20,'bold'),text='Unit Grads\n')
+        self.DataFrameRight=LabelFrame(DataFrame,bd=1,width=900,height=400,padx=31,pady=8, bg='powder blue',font=('Arial',20,'bold'),text='All Students Mark\n')
         self.DataFrameRight.pack(side='right')
 
         # # Title
@@ -132,22 +132,22 @@ class AddMark:
         self.txtBiology.grid(row=9, column=1)
 
         ##button
-        self.btnInsert = Button(ButtonFrame, text='Add Mark', font=('Arial', 12, 'bold'), height=1, width=16, bd=2, bg="#4CAF50", fg="white", command=self.insert_student)
+        self.btnInsert = Button(ButtonFrame, text='Add Mark', font=('Arial', 12, 'bold'), height=1, width=16, bd=2, bg="#4CAF50", padx=20,fg="white", command=self.insert_student)
         self.btnInsert.grid(row=12, column=0)
 
-        self.btnSearch = Button(ButtonFrame, text='Search Student Mark', font=('Arial', 12, 'bold'), height=1, width=16, bd=2, padx=13, bg="#2196F3", fg="white", command=self.search_student)
+        self.btnSearch = Button(ButtonFrame, text='Search Student Mark', font=('Arial', 12, 'bold'), height=1, width=16, bd=2, padx=20, bg="#2196F3", fg="white", command=self.search_student)
         self.btnSearch.grid(row=12, column=1)
 
-        self.btnUpdate = Button(ButtonFrame, text='Update Student Mark', font=('Arial', 12, 'bold'), height=1, width=16, bd=2, padx=13, bg="#FFC107", fg="black", command=self.update_student)
+        self.btnUpdate = Button(ButtonFrame, text='Update Student Mark', font=('Arial', 12, 'bold'), height=1, width=16, bd=2, padx=20, bg="#FFC107", fg="black", command=self.update_student)
         self.btnUpdate.grid(row=12, column=2)
 
-        self.btnDelete = Button(ButtonFrame, text='Delete Student Mark', font=('Arial', 12, 'bold'), height=1, width=16, bd=2, padx=13, bg="#F44336", fg="white", command=self.delete_student)
+        self.btnDelete = Button(ButtonFrame, text='Delete Student Mark', font=('Arial', 12, 'bold'), height=1, width=16, bd=2, padx=20, bg="#F44336", fg="white", command=self.delete_student)
         self.btnDelete.grid(row=12, column=3)
 
-        self.btnGPA = Button(ButtonFrame, text='Calculate GPA', font=('Arial', 12, 'bold'), height=1, width=16, bd=2, padx=13, bg="#9C27B0", fg="white", command=self.gpa)
+        self.btnGPA = Button(ButtonFrame, text='Calculate GPA', font=('Arial', 12, 'bold'), height=1, width=16, bd=2, padx=20, bg="#9C27B0", fg="white", command=self.gpa)
         self.btnGPA.grid(row=12, column=4)
 
-        self.btnHome = Button(ButtonFrame, text='Home', font=('Arial', 12, 'bold'), height=1, width=16, bd=2, padx=13, bg="#607D8B", fg="white", command=self.Home)
+        self.btnHome = Button(ButtonFrame, text='Home', font=('Arial', 12, 'bold'), height=1, width=16, bd=2, padx=20, bg="#607D8B", fg="white", command=self.Home)
         self.btnHome.grid(row=12, column=5)
 
         self.btnExit = Button(ButtonFrame, text='Exit', font=('Arial', 12, 'bold'), height=1, width=16, bd=2, padx=13, bg="#795548", fg="white", command=self.Exit)

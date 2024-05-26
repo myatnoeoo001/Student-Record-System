@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk, filedialog
 import mysql.connector
 from tkinter import messagebox
+from tkcalendar import DateEntry
 
 class Student:
 
@@ -116,8 +117,8 @@ class Student:
         #row 6
         self.lblDob = Label(DataFrameLeft, font=('Arial',14,'bold'), text='Date Of Birth', padx=5, pady=3 , bg='cadet blue')
         self.lblDob.grid(row=9, column=0, sticky='w')
-        self.txtDob = Entry(DataFrameLeft, font=('Arial',14,'bold'), textvariable=self.Dob, width=30)
-        self.txtDob.grid(row=9, column=1)
+        self.txtDob = DateEntry(DataFrameLeft, font=('Arial', 14, 'bold'), textvariable=self.Dob, width=30, background='darkblue', foreground='white')
+        self.txtDob.grid(row=9, column=1, padx=10, sticky='w')
 
         #row 7
         self.lblNRC = Label(DataFrameLeft, font=('Arial',14,'bold'), text='NRC', padx=5, pady=3 , bg='cadet blue')
@@ -148,20 +149,23 @@ class Student:
         self.btnUploadPhoto.grid(row=14, column=1)
 
         ######################################button........................
-        self.btnAddInsert = Button(ButtonFrame, text='Add Student', font=('Arial',12,'bold'), height=1, width=16, bd=2, padx=13, command=self.insert_student)
+        self.btnAddInsert = Button(ButtonFrame, text='Add Student', font=('Arial',12,'bold'), height=1, width=16, bd=2, padx=13, bg='lightblue', fg='black', command=self.insert_student)
         self.btnAddInsert.grid(row=0, column=1)
 
-        self.btnAddShow = Button(ButtonFrame, text='Search Student', font=('Arial',12,'bold'), height=1, width=16, bd=2, padx=13, command=self.show_student_page)
+        self.btnAddShow = Button(ButtonFrame, text='Search Student', font=('Arial',12,'bold'), height=1, width=16, bd=2, padx=13, bg='lightgreen', fg='black', command=self.show_student_page)
         self.btnAddShow.grid(row=0, column=2)
 
-        self.btnUpdate = Button(ButtonFrame, text='Update Student', font=('Arial',12,'bold'), height=1, width=16, bd=2, padx=13, command=self.Update_student_page)
+        self.btnUpdate = Button(ButtonFrame, text='Update Student', font=('Arial',12,'bold'), height=1, width=16, bd=2, padx=13, bg='#FFFACD', fg='black', command=self.Update_student_page)
         self.btnUpdate.grid(row=0, column=3)
 
-        self.btnDelete = Button(ButtonFrame, text='Delete Student', font=('Arial',12,'bold'), height=1, width=16, bd=2, padx=13, command=self.Delete_student_page)
+        self.btnDelete = Button(ButtonFrame, text='Delete Student', font=('Arial',12,'bold'), height=1, width=16, bd=2, padx=13, bg='lightcoral', fg='black', command=self.Delete_student_page)
         self.btnDelete.grid(row=0, column=4)
 
-        self.btnDelete = Button(ButtonFrame, text='Add Mark', font=('Arial',12,'bold'), height=1, width=16, bd=2, padx=13, command=self.AddMark_student_page)
+        self.btnDelete = Button(ButtonFrame, text='Add Mark', font=('Arial',12,'bold'), height=1, width=16, bd=2, padx=13, bg='lightpink', fg='black', command=self.AddMark_student_page)
         self.btnDelete.grid(row=0, column=5)
+
+        self.btnDelete = Button(ButtonFrame, text='Logout', font=('Arial',12,'bold'), height=1, width=16, bd=2, padx=13, bg='red', fg='black', command=self.logout)
+        self.btnDelete.grid(row=0, column=6)
 
     def upload_photo(self):
         file_path = filedialog.askopenfilename(title="Select a Photo", filetypes=[("Image files", "*.jpg *.jpeg *.png *.bmp *.gif")])
@@ -252,6 +256,11 @@ class Student:
         from AddMark_Student_page import AddMark
         delete_window = Toplevel(self.root)
         AddMark(delete_window)
+
+    def logout(self):
+        from login_page import Login
+        delete_window = Toplevel(self.root)
+        Login(delete_window)
 
 if __name__=='__main__':
     root=Tk()

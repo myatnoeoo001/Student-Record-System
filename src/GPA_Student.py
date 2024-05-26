@@ -21,26 +21,26 @@ class GPA:
         self.RollNo = StringVar()
         self.Name = StringVar()
 
-        self.Myanmar_Grade = IntVar()
-        self.English_Grade = IntVar()
-        self.Math_Grade = IntVar()
-        self.Physics_Grade = IntVar()
-        self.Chemistry_Grade = IntVar()
-        self.Biology_Grade = IntVar()
+        self.Myanmar_Grade = StringVar()
+        self.English_Grade = StringVar()
+        self.Math_Grade = StringVar()
+        self.Physics_Grade = StringVar()
+        self.Chemistry_Grade = StringVar()
+        self.Biology_Grade = StringVar()
         
-        self.Myanmar_GradeScore = IntVar()
-        self.English_GradeScore = IntVar()
-        self.Math_GradeScore = IntVar()
-        self.Physics_GradeScore = IntVar()
-        self.Chemistry_GradeScore = IntVar()
-        self.Biology_GradeScore = IntVar()
+        self.Myanmar_GradeScore = DoubleVar()
+        self.English_GradeScore = DoubleVar()
+        self.Math_GradeScore = DoubleVar()
+        self.Physics_GradeScore = DoubleVar()
+        self.Chemistry_GradeScore = DoubleVar()
+        self.Biology_GradeScore = DoubleVar()
         
-        self.Myanmar_GradePoint = IntVar()
-        self.English_GradePoint = IntVar()
-        self.Math_GradePoint = IntVar()
-        self.Physics_GradePoint = IntVar()
-        self.Chemistry_GradePoint = IntVar()
-        self.Biology_GradePoint = IntVar()
+        self.Myanmar_GradePoint = DoubleVar()
+        self.English_GradePoint = DoubleVar()
+        self.Math_GradePoint = DoubleVar()
+        self.Physics_GradePoint = DoubleVar()
+        self.Chemistry_GradePoint = DoubleVar()
+        self.Biology_GradePoint = DoubleVar()
         
         self.Total_Credits=StringVar()
         self.Total_GradePoints=StringVar()
@@ -549,6 +549,8 @@ class GPA:
         else:
             messagebox.showerror("Error", "Student record not found.")
 
+    
+
     def Exp_GPA(self):
         # Create a new Excel workbook and select the active worksheet
         wb = openpyxl.Workbook()
@@ -557,34 +559,95 @@ class GPA:
 
         # Define the headers for the Excel file
         ws['A1'] = "Roll No"
-        ws['B1'] = "Name"
-        ws['C1'] = "Subjects"
-        ws['D1'] = "Credit"
-        ws['E1'] = "Grade"
-        ws['F1'] = "Grade Score"
-        ws['G1'] = "Grade Point"
+        ws['A2'] = "Name"
+        ws['B1'] = self.RollNo.get() if isinstance(self.RollNo, StringVar) else self.RollNo
+        ws['B2'] = self.Name.get() if isinstance(self.Name, StringVar) else self.Name
 
-        # Save the workbook to a file named 'GPA.xlsx'
-        wb.save(filename='GPA.xlsx')
+        ws['A3'] = "Subjects"
+        ws['B3'] = "Credit"
+        ws['C3'] = "Grade"
+        ws['D3'] = "Grade Score"
+        ws['E3'] = "Grade Point"
+        
+        #Myanmar
+        ws['A4'] = "Myanmar"
+        ws['B4'] = self.Myanmar_Credit.get() if isinstance(self.Myanmar_Credit, IntVar) else self.Myanmar_Credit
+        ws['C4'] = self.Myanmar_Grade.get() if isinstance(self.Myanmar_Grade, StringVar) else self.Myanmar_Grade
+        ws['D4'] = self.Myanmar_GradeScore.get() if isinstance(self.Myanmar_GradeScore, DoubleVar) else self.Myanmar_GradeScore
+        ws['E4'] = self.Myanmar_GradePoint.get() if isinstance(self.Myanmar_GradePoint, DoubleVar) else self.Myanmar_GradePoint
 
-        # Display a message box to indicate success
+        #English
+        ws['A5'] = "English"
+        ws['B5'] = self.English_Credit.get() if isinstance(self.English_Credit, IntVar) else self.English_Credit
+        ws['C5'] = self.English_Grade.get() if isinstance(self.English_Grade, StringVar) else self.English_Grade
+        ws['D5'] = self.English_GradeScore.get() if isinstance(self.English_GradeScore, DoubleVar) else self.English_GradeScore
+        ws['E5'] = self.English_GradePoint.get() if isinstance(self.English_GradePoint, DoubleVar) else self.English_GradePoint
+
+        #Math
+        ws['A6'] = "Math"
+        ws['B6'] = self.Math_Credit.get() if isinstance(self.Math_Credit, IntVar) else self.Math_Credit
+        ws['C6'] = self.Math_Grade.get() if isinstance(self.Math_Grade, StringVar) else self.Math_Grade
+        ws['D6'] = self.Math_GradeScore.get() if isinstance(self.Math_GradeScore, DoubleVar) else self.Math_GradeScore
+        ws['E6'] = self.Math_GradePoint.get() if isinstance(self.Math_GradePoint, DoubleVar) else self.Math_GradePoint
+
+        #Physics
+        ws['A7'] = "Physics"
+        ws['B7'] = self.Physics_Credit.get() if isinstance(self.Physics_Credit, IntVar) else self.Physics_Credit
+        ws['C7'] = self.Physics_Grade.get() if isinstance(self.Physics_Grade, StringVar) else self.Physics_Grade
+        ws['D7'] = self.Physics_GradeScore.get() if isinstance(self.Physics_GradeScore, DoubleVar) else self.Physics_GradeScore
+        ws['E7'] = self.Physics_GradePoint.get() if isinstance(self.Physics_GradePoint, DoubleVar) else self.Physics_GradePoint
+
+        #Chemistry
+        ws['A8'] = "Chemistry"
+        ws['B8'] = self.Chemistry_Credit.get() if isinstance(self.Chemistry_Credit, IntVar) else self.Chemistry_Credit
+        ws['C8'] = self.Chemistry_Grade.get() if isinstance(self.Chemistry_Grade, StringVar) else self.Chemistry_Grade
+        ws['D8'] = self.Chemistry_GradeScore.get() if isinstance(self.Chemistry_GradeScore, DoubleVar) else self.Chemistry_GradeScore
+        ws['E8'] = self.Chemistry_GradePoint.get() if isinstance(self.Chemistry_GradePoint, DoubleVar) else self.Chemistry_GradePoint
+
+        #Biology
+        ws['A9'] = "Biology"
+        ws['B9'] = self.Biology_Credit.get() if isinstance(self.Biology_Credit, IntVar) else self.Biology_Credit
+        ws['C9'] = self.Biology_Grade.get() if isinstance(self.Biology_Grade, StringVar) else self.Biology_Grade
+        ws['D9'] = self.Biology_GradeScore.get() if isinstance(self.Biology_GradeScore, DoubleVar) else self.Biology_GradeScore
+        ws['E9'] = self.Biology_GradePoint.get() if isinstance(self.Biology_GradePoint, DoubleVar) else self.Biology_GradePoint
+
+        #for Total Credit Point
+        ws['A10'] ="Total Credit Point"
+        ws['B10'] =self.Total_Credits.get()
+
+        #for Total Grade Point
+        ws['D10'] ="Total Grade Point"
+        ws['E10'] =self.Total_GradePoints.get()
+
+        #for Overall GPA
+        ws['D11']="Overall GPA"
+        ws['E11']=self.gpa.get()
+
+        # Initialize the root window for Tkinter and hide it
         root = Tk()
-        root.withdraw()  # Hide the root window
-        messagebox.showinfo("Exported", "GPA has been exported successfully!")
-        root.destroy()  # Destroy the root window after the message box is closed
-   
-            
-        
+        root.withdraw()
 
-        
+        # Open a file dialog to select the save location and file name
+        file_path = filedialog.asksaveasfilename(defaultextension=".xlsx", filetypes=[("Excel files", "*.xlsx")], title="Save GPA file")
+
+        # If a file path is selected, save the workbook
+        if file_path:
+            wb.save(filename=file_path)
+            # Display a message box to indicate success
+            messagebox.showinfo("Exported", "GPA has been exported successfully!")
+        else:
+            # Display a message box to indicate the save was cancelled
+            messagebox.showinfo("Cancelled", "Export has been cancelled.")
+
+        # Destroy the root window after the message box is closed
+        root.destroy()
+
             
     def upload_photo(self):
         filename = filedialog.askopenfilename()
         print("Selected File:", filename)
 
-    def Exp_GPA(self):
-        # Implement GPA export logic here if required
-        print('Hello')
+    
 
 if __name__ == '__main__':
     root = Tk()

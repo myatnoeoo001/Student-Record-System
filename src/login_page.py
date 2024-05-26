@@ -32,7 +32,7 @@ class Login:
 
         self.user = Entry(self.frame, width=25, fg='black', bd=0, bg='white', highlightthickness=0, font=('Microsoft YaHei UI Light', 11))
         self.user.place(x=30, y=80)
-        self.user.insert(0, 'username')
+        self.user.insert(0, 'Username')
         self.user.bind('<FocusIn>', self.on_enter_user)
         self.user.bind('<FocusOut>', self.on_leave_user)
 
